@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>hexo命令备忘录。</title>
+    <link href="/posts/570ae4c8.html"/>
+    <url>/posts/570ae4c8.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h1><p>hexo安装</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">npm install hexo-cli -g<br></code></pre></td></tr></table></figure><p>hexo安装部署</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">npm install<br></code></pre></td></tr></table></figure><p>安装hexo d的部署命令</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure><p>hexo一键三连。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure><h1 id="git配置"><a href="#git配置" class="headerlink" title="git配置"></a>git配置</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs other">git config --global user.name &quot;wuxie136&quot;<br> git config --global user.email &quot;848129247@qq.com&quot;<br></code></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs othe">ssh-keygen -t rsa -C &quot;848129247@qq.com&quot;<br></code></pre></td></tr></table></figure><p>上传命令</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs other">git add .<br>git commit –m &quot;add branch&quot;<br>git push<br></code></pre></td></tr></table></figure><p>第二种方法</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs other">git add .<br>git commit -m &#x27;注释&#x27;<br>git branch -m main<br>git push -f origin main<br></code></pre></td></tr></table></figure><p>连续回车，输入下面的看密钥</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">cat ~/.ssh/id_rsa.pub<br></code></pre></td></tr></table></figure><p>测试是否连接</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">ssh -T git@github.com<br></code></pre></td></tr></table></figure><h1 id="上传到仓库"><a href="#上传到仓库" class="headerlink" title="上传到仓库"></a>上传到仓库</h1><p>删除所有仓库链接</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">git remote rm origin<br></code></pre></td></tr></table></figure><p>链接仓库</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">git remote add origin https://@github.com/wuxie136/blog136.git<br></code></pre></td></tr></table></figure><p>忽悠一些不重要的文件。<br>创建.gitignore</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs other">.DS_Store<br>Thumbs.db<br>db.json<br>*.log<br>node_modules/<br>public/<br>.deploy*/<br></code></pre></td></tr></table></figure><h1 id="部署到page"><a href="#部署到page" class="headerlink" title="部署到page"></a>部署到page</h1><p>安装插件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure><p>配置</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs other">deploy:<br>  type: git<br>  repo: https://github.com/YourgithubName/YourgithubName.github.io.git<br>  branch: main<br></code></pre></td></tr></table></figure><p>一键上传</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs other">git add .<br>git commit -m &#x27;注释&#x27;<br>git branch -m main<br>git push -f origin main<br></code></pre></td></tr></table></figure><h1 id="恢复hexo"><a href="#恢复hexo" class="headerlink" title="恢复hexo"></a>恢复hexo</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">git clone 仓库链接<br></code></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs other">npm install<br>npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术分享</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>安卓手机利用Termux安装hexo</title>
+    <link href="/posts/85e7474c.html"/>
+    <url>/posts/85e7474c.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>最近闲得无事，就想实践一下使用<strong>Termux</strong>更新<strong>hexo</strong>。<br>不过，重点其实是熟悉一下linux的操作，因为自己已经通过<strong>deepin</strong>和<strong>chrome os</strong>强制学习了一下<strong>linux</strong>。如果你是<strong>linux</strong>常用人员，以下其实都是废话。</p></blockquote><p><strong>必要步骤</strong>：</p><h2 id="1-安装node-js稳定版和git"><a href="#1-安装node-js稳定版和git" class="headerlink" title="1.安装node.js稳定版和git"></a>1.安装node.js稳定版和git</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">pkg install nodejs-lts<br></code></pre></td></tr></table></figure><p>注意<strong>hexo</strong>不支持最新版，会报错<strong>type error</strong>（这其实是<strong>hexo</strong>内部百度站点提交插件的问题）</p><p>另外如果不慎安装错误，就来复习一下pkg <strong>卸载命令</strong>吧。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">pkg unstall nodejs<br></code></pre></td></tr></table></figure><p>apt安装git（pkg也行）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">apt-get install git<br></code></pre></td></tr></table></figure><h2 id="2-安装hexo"><a href="#2-安装hexo" class="headerlink" title="2   .安装hexo"></a>2   .安装hexo</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">npm install hexo-cli -g<br></code></pre></td></tr></table></figure><h2 id="3-安装hexo-d的部署命令"><a href="#3-安装hexo-d的部署命令" class="headerlink" title="3.安装hexo d的部署命令"></a>3.安装hexo d的部署命令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure><p>使用<strong>npm安装</strong>，不然无法部署到GitHub，只能在本地浏览。</p><h2 id="4-如果电脑上已经部署了hexo，可以直接将文件夹转移到手机。"><a href="#4-如果电脑上已经部署了hexo，可以直接将文件夹转移到手机。" class="headerlink" title="4 .如果电脑上已经部署了hexo，可以直接将文件夹转移到手机。"></a>4 .如果电脑上已经部署了<strong>hexo</strong>，可以直接将文件夹转移到手机。</h2><p>这里需要讲一下<strong>termux的</strong>工作原理：</p><p><strong>termux</strong>默认设定的<strong>home</strong>目录是安卓的应用数据文件夹，也就是手机无法访问的<strong>root</strong>根目录。</p><p>如果非要访问，可以<strong>root</strong>。</p><p>因此只有通过命令创建<strong>映射</strong>才能访问手机其他位置</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">termux-setup-storage<br></code></pre></td></tr></table></figure><p>然后cd到文件管理器根目录</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">cd /storage/emulated/0/<br></code></pre></td></tr></table></figure><p>然后再<strong>cd</strong>到你放文件夹的位置</p><p>如果想完全新建一个，<strong>cd</strong>到想要的目录后<br><strong>使用hexo初始化</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs oter">hexo init blog<br></code></pre></td></tr></table></figure><h2 id="5-设置git配置"><a href="#5-设置git配置" class="headerlink" title="5.设置git配置"></a>5.设置git配置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">git config --global user.name &quot;你的github用户的名字&quot;<br></code></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">git config --global user.name &quot;你的github用户的邮箱&quot;<br></code></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">ssh-keygen -t rsa -C &quot;你的github账户邮箱&quot;<br></code></pre></td></tr></table></figure><p>连续回车，输入下面的看密钥</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">cat ~/.ssh/id_rsa.pub<br></code></pre></td></tr></table></figure><p>复制此时显示的内容，内容应该是ssh-rsa简介<br>在<br><a href="https://github.com/settings/keys">https://github.com/settings/keys</a> 下 add new ssh key</p><p>title可随意填写，key就是我们拷贝的key<br>用于创建与GitHub的连接。<br><strong>测试</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">ssh git@github.com<br></code></pre></td></tr></table></figure><p>成功后大概会出现一下内容：（可能会有部分不一致）</p><p><img src="https://img.15xd.cn/uploads/2022/06/ddDhc6ZODkP5d8Iw1FiPQf9FAfkiVvEw.png" alt="image-20200708235845417.png"></p><h2 id="6-hexo-new，g，d一气呵成"><a href="#6-hexo-new，g，d一气呵成" class="headerlink" title="6.hexo new，g，d一气呵成"></a>6.hexo new，g，d一气呵成</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d<br></code></pre></td></tr></table></figure><p>访问<strong>source</strong>文件夹，使用你想要的文本编辑器编辑文件，然后发布。</p><p>其实整个过程和<strong>linux</strong>上部署<strong>hexo</strong>没有太大差别，因为安卓本质上就是linux虚拟机，以<strong>termux</strong>作为终端使用<strong>linux</strong>很简单。</p><h2 id="然后是题外话："><a href="#然后是题外话：" class="headerlink" title="然后是题外话："></a>然后是题外话：</h2><p><strong>termux</strong>用处很多，安装<strong>deepin</strong>或是<strong>kali</strong>都是很简单的事情，挂下载或是作为文件服务器什么都行，就是一个<strong>linux</strong>电脑。</p><p>虽然下载源在国内实测可以使用，但是可能出现问题，可以下载<strong>vim</strong>修改其他下载源，或者使用代理都是可以的。</p><p>上传时需要输入用户名和密码。可以生成ssh使用<strong>vim</strong>访问然后添加密匙，和电脑差别不大。</p><p><strong>Picgo</strong>已经放出手机端，可以设定图床快速生成链接。</p><p>每次<strong>cd</strong>很麻烦，可以创建软连接。默认的软连接已经包括<strong>share、dcim、downloads、pictures</strong>等等链接，分别指向内部存储的相应文件夹，其中<strong>shared</strong>是指向内部存储的根目录。</p><p>不会真有人用手机更新<strong>hexo</strong>吧？不会吧不会吧，手机屏幕这么小，又没有好用的<strong>markdown</strong>编辑器，这么搞不是给自己找罪受吗？</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>hexo</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>解决一次Jsdelivr导致的样式丢失。</title>
+    <link href="/posts/8c48d2f1.html"/>
+    <url>/posts/8c48d2f1.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>2021年12月20日JsD在中国访问不通，无法正常使用，后续在JsD官方在推文上发布了原因。<br>具体就是JsD失去了在中国的备案，因为JsD在国内使用的是国内的CDN加速服务，所以必须要备案才可以，当然这备案掉了肯定没那么容易再弄回来的，JsD目前已将国内加速切换到了全球CDN加速，速度是大不如从前了，要搬家的话又是一部分大工程，因为有很多人用JsD的功能来做图床用，不过幸好我没有用，不然就很头疼了。</p><h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p><strong>更换到其他公共CDN</strong><br><strong>Staticfile CDN</strong><br><a href="http://www.staticfile.org/">http://www.staticfile.org/</a></p><blockquote><p>七牛云存储提供，我们的目标是提供这样一个仓库，让它尽可能全面收录优秀的开源库，并免费为之提供<br>CDN加速服务，使之有更好的访问速度和稳定的环境</p></blockquote><p>** 又拍云JS加速库**<br><a href="http://jscdn.upai.com/">http://jscdn.upai.com/</a></p><blockquote><p>又拍云为您托管常用的JavaScript库，您可以在自己的网页上直接通过script标记引用这些资源。这样做不仅可以为您节省流量，还能通过我们的CDN加速，获得更快的访问速度。</p></blockquote><p><strong>BootCDN</strong><br><a href="https://www.bootcdn.cn/">https://www.bootcdn.cn/</a> </p><blockquote><p>Bootstrap 中文网开源项目免费 CDN 加速服务 - 我们致力于为<br>Bootstrap、jQuery、Angular、Vue.js 一样优秀的开源项目提供稳定、快速、免费的 CDN 加速服务。BootCDN<br>是运营时间最长、用户量最大、最早同时支持 HTTPS（SSL）和 HTTP&#x2F;2.0 协议的中立免费 CDN 。</p></blockquote><p><strong>75CDN</strong><br><a href="https://cdn.baomitu.com/">https://cdn.baomitu.com/</a></p><blockquote><p>360 前端静态资源库是由奇舞团支持并维护的开源项目免费 CDN 服务，支持 HTTPS<br>和 HTTP&#x2F;2，囊括上千个前端资源库和 Google 字体库。</p></blockquote><p><strong>烧饼大佬的公益公共库</strong><br><a href="https://css.loli.net/">https://css.loli.net/</a> </p><blockquote><p>常用前端公共库 &amp; 和谐使用 Google 公共库、字体库的方法</p></blockquote><p><strong>字节跳动静态资源公共库</strong><br><a href="http://cdn.bytedance.com/">http://cdn.bytedance.com/</a> </p><blockquote><p>字节跳动静态资源库支持多协议、资源动态拼接、快速检索及资源的动态更新,安全、稳定、实时。</p></blockquote><p><strong>国外</strong><br><strong>CDNJS</strong><br><a href="https://cdnjs.com/">https://cdnjs.com/</a> </p><blockquote><p>The free and open source CDN for web related<br>libraries to speed up your website!</p></blockquote><p><strong>jsDelivr</strong><br><a href="https://www.jsdelivr.com/">https://www.jsdelivr.com/</a> </p><blockquote><p>jsDelivr is a public open-source CDN<br>(Content Delivery Network) where anyone can submit a project to be<br>hosted and delivered by our network.（有中国节点，还支持Github，强烈推荐！！）</p></blockquote><h2 id="更换Jsdelivr的子域名"><a href="#更换Jsdelivr的子域名" class="headerlink" title="更换Jsdelivr的子域名"></a>更换Jsdelivr的子域名</h2><p><strong>jsdelivr主域名cdn.jsdelivr.net国内已经完全被墙了，虽然可以切换成jsdelivr的子域名，不过这个CDN走的是其他线路，也不能保证以后不会被墙。</strong></p><p><strong>CloudFlare</strong>：test1.jsdelivr.net</p><p><strong>CloudFlare</strong>：testingcf.jsdelivr.net</p><p><strong>Fastly</strong>：fastly.jsdelivr.net</p><p><strong>GCORE</strong>：gcore.jsdelivr.net</p><hr><p><strong>网站目录下，输入以下命令修复</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sed -i <span class="hljs-string">&quot;s#cdn.jsdelivr.net#fastly.jsdelivr.net#g&quot;</span> $(grep -rn <span class="hljs-string">&#x27;cdn.jsdelivr.net&#x27;</span> | awk <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span> | awk -F: <span class="hljs-string">&#x27;&#123;print $1&#125;&#x27;</span>)<br></code></pre></td></tr></table></figure><h2 id="反向代理Jsdelivr"><a href="#反向代理Jsdelivr" class="headerlink" title="反向代理Jsdelivr"></a>反向代理Jsdelivr</h2><p><strong>如果一定要使用jsDelivr的资源的话，可以考虑通过NGINX反代cdn.jsdelivr.net这一个资源库自用。建议通过海外优化线路落地+国内中转缓存，不过要注意添加防盗链以及尽量隐藏反代路径，以防止被其他人滥用。具体配置这里给一个简单的范例，博主不是很推荐这样做，可靠性上很打折扣。</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">location /gh<br>&#123;<br>    proxy_pass https://104.16.86.20;<br>    proxy_set_header Host cdn.jsdelivr.net;<br>    proxy_ssl_server_name on;<br>    proxy_ssl_name cdn.jsdelivr.net;<br>    proxy_set_header X-Real-IP <span class="hljs-variable">$remote_addr</span>;<br>    proxy_set_header X-Forwarded-For <span class="hljs-variable">$proxy_add_x_forwarded_for</span>;<br>    proxy_set_header REMOTE-HOST <span class="hljs-variable">$remote_addr</span>;<br></code></pre></td></tr></table></figure><h3 id="宝塔可以直接反向代理"><a href="#宝塔可以直接反向代理" class="headerlink" title="宝塔可以直接反向代理"></a>宝塔可以直接反向代理</h3><p>我使用的是宝塔面板创建的网站</p><p>首先将域名解析到你的服务器</p><p>在宝塔面板中创建一个网站</p><p>配置反向代理。</p><blockquote><p>不要用良心云，套路云反代，有封鸡风险。<br>首先打开需要反代的域名的站点配置文件。</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>Jsdelivr</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Jsdelivr</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Linux安装dd系统Windows</title>
+    <link href="/posts/54183ff.html"/>
+    <url>/posts/54183ff.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>最近重新打开了半年没有碰过的MC，又沉迷在了MC多人服务器里，玩的是1.17.1版本，奈何服务器有个挂机奖励系统，在线时间越长奖励越丰富，正好有台闲置的美国机子，配置是5G2核，挂个MC，不玩只挂机应该够用，因为机子是美国机，服务商那边没有给提供Windows系统选项，于是就开始了DD系统。<br>这里使用的<strong>DD脚本</strong>来自：<a href="https://git.beta.gs/">https://git.beta.gs/</a></p></blockquote><h1 id="DD操作步骤"><a href="#DD操作步骤" class="headerlink" title="DD操作步骤"></a>DD操作步骤</h1><p>在开始一切之前，先获取服务器的<strong>网关、IP、子网掩码</strong><br>并把他们记下来</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash">    vi /etc/sysconfig/network-scripts/ifcfg-eth0<br>```    <br>&gt; DEVICE=eth0<br>TYPE=Ethernet<br>BOOTPROTO=static<br>IPADDR=... //这是IP地址<br>NETMASK=255.255.255.128 //这是子网掩码<br>GATEWAY=... //这是网关<br>DNS1=8.8.8.8<br>DNS2=223.5.5.5<br>ONBOOT=<span class="hljs-built_in">yes</span><br><br>安装重装系统的前提组件:<br>Debian/Ubuntu:<br>```bash<br>    apt-get install -y xz-utils openssl gawk file wget screen &amp;&amp; screen -S os<br></code></pre></td></tr></table></figure><p>RedHat&#x2F;CentOS:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">    yum install -y xz openssl gawk file glibc-common wget screen &amp;&amp; screen -S os<br>一键DD安装Windows系统<br></code></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">    wget --no-check-certificate -O AutoReinstall.sh https://git.io/betags &amp;&amp; <span class="hljs-built_in">chmod</span> a+x AutoReinstall.sh &amp;&amp; bash AutoReinstall.sh<br>系统密码<br></code></pre></td></tr></table></figure><p>当出现如下信息的时候，就表示已经装好了</p><blockquote><p>.&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;info&#x2F;di-utils.templates<br>.&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;status<br>223858 块</p></blockquote><p>这个时候你会发现服务器控制面板的流量图表监控在大流量（几个G）下载，这时候只需要慢慢等待他安装完即可，同时可以通过服务器控制面板的VNC连接查看进度。<br>如果一直显示0%也不要紧张，还是那句话，你可以通过控制面板监控流量报表来查看系统镜像是否下载完毕。</p><p>安装好后直接登陆，你会发现右下角网络连接那有个黄色叹号，意思是还不能<strong>上网</strong>。</p><p>这时候之前收集网络信息填进去，右键打开“<strong>网络和 internet</strong>”设置→网络和共享中心。<br>或者从控制面板进入网络和共享中心</p><ol><li><p><strong>选择以太网</strong>→<strong>属性</strong></p></li><li><p>选择Internet 协议版本 4（TCP&#x2F;IPv4）→属性，选择使用下面的 IP 地址和使用下面的 DNS 服务器地址</p></li><li><p>内容就填一开始记下来的网关、IP、子网掩码。<br>DNS服务器可以填<strong>8.8.8.8</strong>和<strong>1.1.1.1</strong><br>至此DD系统完成。</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>Windows</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Windows</tag>
+      
+      <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>为什么网站打开速度慢</title>
+    <link href="/posts/cb84c60b.html"/>
+    <url>/posts/cb84c60b.html</url>
+    
+    <content type="html"><![CDATA[<p><strong>在进行站点优化时，很多站长会发现我们的网站有时运行速度很快，有时运行速度很慢，严重影响了用户体验。因此，有必要理解为什么网站变得很慢。如今，可以帮助你了解为什么我们的网站会慢下来。</strong></p><p><img src="https://i04piccdn.sogoucdn.com/71e4070db5223598" alt="请输入图片描述"></p><h2 id="1、网页的大小"><a href="#1、网页的大小" class="headerlink" title="1、网页的大小"></a>1、网页的大小</h2><p>网页加载速度与网页大小直接相关。站点的代码文件越大，载入速度就越慢，网站打开速度就越慢，如果有太多的图片的话，网站就会变得很慢。</p><h2 id="2、网站服务器"><a href="#2、网站服务器" class="headerlink" title="2、网站服务器"></a>2、网站服务器</h2><p>服务器不稳定是影响网站开放速度的直接原因。由于服务器不稳定，网站的运行速度很慢。推荐站点管理员使用过您的服务器。虽然国外的服务器能让申请过程省心，但国外的主机比国内的要慢得多。</p><h2 id="3、网站的流量太大"><a href="#3、网站的流量太大" class="headerlink" title="3、网站的流量太大"></a>3、网站的流量太大</h2><p>一般来说，访问网站服务器是有一些限制的。随着越来越多的用户同时访问网站，网站会出现超载问题，导致网站崩溃。因此，当你在购买网站服务器时，你必须了解宽带的大小，并根据你网站页面的大小和访问量购买服务器空间，以免网站流量过大。</p><h2 id="4、优化网站代码"><a href="#4、优化网站代码" class="headerlink" title="4、优化网站代码"></a>4、优化网站代码</h2><p>大量的JS调用在站点代码中。如果网站中的JS调用过多，网站就会打开得太久，导致网站打开的速度变慢。站点管理员可以利用缓存机制对过于复杂的网站代码进行处理和传输，从而减少服务器数据的处理和传输，提高网站的开放速度。</p><h2 id="5、网速问题"><a href="#5、网速问题" class="headerlink" title="5、网速问题"></a>5、网速问题</h2><p>如果网站访问者上网速度很慢，网站的运行速度就会很慢。例如，如果我们站点的服务器是一台电信，联通的用户就会变慢。这就是网站有可能慢慢打开。从以上几个方面，你可以了解为什么网站开得慢。但愿今天提供的内容对您有帮助。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>优化</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>要不要免费帮助别人</title>
+    <link href="/posts/7780c966.html"/>
+    <url>/posts/7780c966.html</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://jsd.15xd.cn/gh/linmu136/tulin/45004b33edfd0b32607e9370de88d0a9.png" alt="请输入图片描述"></p><h2 id="没事不要免费帮助别人。你如果免费帮助别人，那么最终会有两个结果"><a href="#没事不要免费帮助别人。你如果免费帮助别人，那么最终会有两个结果" class="headerlink" title="没事不要免费帮助别人。你如果免费帮助别人，那么最终会有两个结果:"></a>没事不要免费帮助别人。你如果免费帮助别人，那么最终会有两个结果:</h2><p>①当你停止免费援助的时候，那个人会恨你。</p><p>②你免费帮他，他在潜意识里会认为，你就是个没有本事的废物，不值钱，很贱。这不怪他，这是人的本性。</p><p>所以说，你如果认为自己的付出有价值，就要索取相应的报酬。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>个人经验</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>几种使用谷歌搜索的方法</title>
+    <link href="/posts/81484837.html"/>
+    <url>/posts/81484837.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>前言:目前因为谷歌被墙，所以在国内是无法直接访问谷歌搜索官网的，但是有的时候我们又不得不使用谷歌，这里分享几个可以正常使用谷歌搜索的方法。对您有帮助的话就来看看吧。</p></blockquote><p>**1.**使用谷歌镜像站，第一步，打开百度，搜索谷歌镜像站，随便找一个进入，就可以正常使用谷歌了，不过这属于镜像站，但是使用他搜索一些东西还是挺好用的，就是有的时候会显示流量异常被拦截，如果被拦了，就换个镜像站即可。</p><hr><p>**2.**使用翻，墙，工具，这个也是比较常用的方法，不过目前法律规定了这方面的一些，所以一般不能自己搭来翻墙，不然会被请去喝茶，一般情况不建议使用这个方法，如果非要使用还是谨慎为好。</p><hr><p>**3.**使用香港服务器，可以买一台香港服务器，使用远程连接，连接上去，在里面是有谷歌，目前香港访问谷歌是可以正常访问的，服务器推荐买个小配置的就行，随便找一个不出名的商家，买便宜的机器就够。</p><hr><p>**4.**自己搭建镜像站，至于如何搭建可以从百度上查一下方法，有大佬分享过用cloudflare来搭建镜像站。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>个人经验</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>谷歌</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>在线网页截图工具</title>
+    <link href="/posts/2695d39.html"/>
+    <url>/posts/2695d39.html</url>
+    
+    <content type="html"><![CDATA[<p>一般情况，手机截图或者电脑截图总会有一些边框，然后还需要自己修剪，这里推荐一个网页在线截图工具，可以一键截图，并且支持api（有助于开发者使用）</p><h2 id="优点"><a href="#优点" class="headerlink" title="优点:"></a>优点:</h2><ol><li><p>支持内置边框</p></li><li><p>内置背景</p></li><li><p>支持自定义尺寸</p></li><li><p>可以选择长截图</p></li><li><p>可自定义设备（PC,平板,手机）</p></li><li><p>可自定义cookie可</p></li><li><p>自定义延迟</p></li></ol><p>更值得一说的是，它提供API服务，开发者朋友们有福啦！</p><p>可以利用api来写一些程序，例如:网站实时状态截图工具</p><p>工具地址:</p><p><a href="https://www.screenshotmaster.com/">https://www.screenshotmaster.com/</a></p><p>工具展示图<br><img src="https://s3.ax1x.com/2021/02/01/yeqfit.png" alt="图片"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术分享</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>教你在Win10下怎么查看WIFI密码</title>
+    <link href="/posts/71f1b8cc.html"/>
+    <url>/posts/71f1b8cc.html</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>在Win10下怎么查看WIFI密码呢，相信很多用户很早就连接了WIFI，久了之后就把WIFI密码给忘记了，其实大家不要急，在Win10下查看WIFI密码还是比较简单的，下面小编提供了两种方法，大家觉的哪个更方便就用哪个方法。</p></blockquote><h1 id="注：所能查看WIFI密码，必须之前已经连接上。"><a href="#注：所能查看WIFI密码，必须之前已经连接上。" class="headerlink" title="注：所能查看WIFI密码，必须之前已经连接上。"></a>注：所能查看WIFI密码，必须之前已经连接上。</h1><h2 id="方法一：系统设置查看WiFi密码"><a href="#方法一：系统设置查看WiFi密码" class="headerlink" title="方法一：系统设置查看WiFi密码"></a>方法一：系统设置查看WiFi密码</h2><blockquote><p>首先，电脑需要先连接WiFi网络。</p></blockquote><h3 id="１．接着，开启“设置”，在“网络和Internet”一栏，找到“更改适配器选项”，点开。除此以外，直接从Win10的搜索框中直接搜索打开也可以。"><a href="#１．接着，开启“设置”，在“网络和Internet”一栏，找到“更改适配器选项”，点开。除此以外，直接从Win10的搜索框中直接搜索打开也可以。" class="headerlink" title="１．接着，开启“设置”，在“网络和Internet”一栏，找到“更改适配器选项”，点开。除此以外，直接从Win10的搜索框中直接搜索打开也可以。"></a>１．接着，开启“设置”，在“网络和Internet”一栏，找到“更改适配器选项”，点开。除此以外，直接从Win10的搜索框中直接搜索打开也可以。</h3><h3 id="2、在网络连接页面，我们右键点击Wlan无线连接，开打状态。"><a href="#2、在网络连接页面，我们右键点击Wlan无线连接，开打状态。" class="headerlink" title="2、在网络连接页面，我们右键点击Wlan无线连接，开打状态。"></a>2、在网络连接页面，我们右键点击Wlan无线连接，开打状态。</h3><h3 id="3、接下来在WLAN状态下，再点击无线属性；"><a href="#3、接下来在WLAN状态下，再点击无线属性；" class="headerlink" title="3、接下来在WLAN状态下，再点击无线属性；"></a>3、接下来在WLAN状态下，再点击无线属性；</h3><h3 id="4、在“无线属性”的窗孔中，切换到“安全”的标签页，网络安全密码就是WIFI密码了，但是要勾选下面的显示字符才可以。"><a href="#4、在“无线属性”的窗孔中，切换到“安全”的标签页，网络安全密码就是WIFI密码了，但是要勾选下面的显示字符才可以。" class="headerlink" title="4、在“无线属性”的窗孔中，切换到“安全”的标签页，网络安全密码就是WIFI密码了，但是要勾选下面的显示字符才可以。"></a>4、在“无线属性”的窗孔中，切换到“安全”的标签页，网络安全密码就是WIFI密码了，但是要勾选下面的显示字符才可以。</h3><h2 id="方法二：通过命令提示符查看WiFi密码"><a href="#方法二：通过命令提示符查看WiFi密码" class="headerlink" title="方法二：通过命令提示符查看WiFi密码"></a>方法二：通过命令提示符查看WiFi密码</h2><h3 id="1、通过Win10搜索，找到CMD命令行。点击右键，选择用系统管理员权限来运行。"><a href="#1、通过Win10搜索，找到CMD命令行。点击右键，选择用系统管理员权限来运行。" class="headerlink" title="1、通过Win10搜索，找到CMD命令行。点击右键，选择用系统管理员权限来运行。"></a>1、通过Win10搜索，找到CMD命令行。点击右键，选择用系统管理员权限来运行。</h3><h3 id="2、接着在CMD中输入以下代码："><a href="#2、接着在CMD中输入以下代码：" class="headerlink" title="2、接着在CMD中输入以下代码："></a>2、接着在CMD中输入以下代码：</h3><blockquote><p>Netsh wlan show profile name&#x3D;”热点名字” key&#x3D;clear</p></blockquote><p>###其中，“热点名字”就填写你想要查看密码的WiFi热点的名称，例如笔者想要查看“staff”这个热点的密码，则输入：</p><blockquote><p>Netsh wlan show profile name&#x3D;”staff” key&#x3D;clear</p></blockquote><h3 id="3、然后按下回车，在显示出来的“安全设置”一栏当中，“关键内容”所显示的，就是该WiFi热点对应的密码了。"><a href="#3、然后按下回车，在显示出来的“安全设置”一栏当中，“关键内容”所显示的，就是该WiFi热点对应的密码了。" class="headerlink" title="3、然后按下回车，在显示出来的“安全设置”一栏当中，“关键内容”所显示的，就是该WiFi热点对应的密码了。"></a>3、然后按下回车，在显示出来的“安全设置”一栏当中，“关键内容”所显示的，就是该WiFi热点对应的密码了。</h3><p><strong>以上就是两种Win10系统下查看WIFI密码的方法了，还是要提醒的是一定要已经连接或是已经连接过和WIFI才可以查看密码哦。</strong></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术分享</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Windows</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>讲解网站中robots.txt文件到底是干什么的？</title>
+    <link href="/posts/2330b865.html"/>
+    <url>/posts/2330b865.html</url>
+    
+    <content type="html"><![CDATA[<h3 id="1、引导搜索引擎蜘蛛抓取指定栏目或内容；"><a href="#1、引导搜索引擎蜘蛛抓取指定栏目或内容；" class="headerlink" title="1、引导搜索引擎蜘蛛抓取指定栏目或内容；"></a>1、引导搜索引擎蜘蛛抓取指定栏目或内容；</h3><h3 id="2、网站改版或者URL重写优化时候屏蔽对搜索引擎不友好的链接；"><a href="#2、网站改版或者URL重写优化时候屏蔽对搜索引擎不友好的链接；" class="headerlink" title="2、网站改版或者URL重写优化时候屏蔽对搜索引擎不友好的链接；"></a>2、网站改版或者URL重写优化时候屏蔽对搜索引擎不友好的链接；</h3><h3 id="3、屏蔽死链接、404错误页面；"><a href="#3、屏蔽死链接、404错误页面；" class="headerlink" title="3、屏蔽死链接、404错误页面；"></a>3、屏蔽死链接、404错误页面；</h3><h3 id="4、屏蔽无内容、无价值页面；"><a href="#4、屏蔽无内容、无价值页面；" class="headerlink" title="4、屏蔽无内容、无价值页面；"></a>4、屏蔽无内容、无价值页面；</h3><h3 id="5、屏蔽重复页面，如评论页、搜索结果页；"><a href="#5、屏蔽重复页面，如评论页、搜索结果页；" class="headerlink" title="5、屏蔽重复页面，如评论页、搜索结果页；"></a>5、屏蔽重复页面，如评论页、搜索结果页；</h3><h3 id="6、屏蔽任何不想被收录的页面；"><a href="#6、屏蔽任何不想被收录的页面；" class="headerlink" title="6、屏蔽任何不想被收录的页面；"></a>6、屏蔽任何不想被收录的页面；</h3><h3 id="7、引导蜘蛛抓取网站地图；"><a href="#7、引导蜘蛛抓取网站地图；" class="headerlink" title="7、引导蜘蛛抓取网站地图；"></a>7、引导蜘蛛抓取网站地图；</h3>]]></content>
+    
+    
+    <categories>
+      
+      <category>个人经验</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>seo优化</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>使用smtp发送邮件时如何隐藏服务器ip</title>
+    <link href="/posts/86119838.html"/>
+    <url>/posts/86119838.html</url>
+    
+    <content type="html"><![CDATA[<p>使用smtp发信时默认会在邮件的头部信息中显示真实的ip地址，将ip地址暴露在网络中是很危险的。所以我们在使用smtp发信时需要隐藏掉服务器的ip。下面简单记录下比较省时省力的几种方案</p><h2 id="1，使用阿里云企业邮箱发送邮件（推荐）"><a href="#1，使用阿里云企业邮箱发送邮件（推荐）" class="headerlink" title="1，使用阿里云企业邮箱发送邮件（推荐）"></a>1，使用阿里云企业邮箱发送邮件（推荐）</h2><p>使用阿里云企业邮箱发信时会自动隐藏服务器ip，另外可以通过企业邮箱升级实现和钉钉账号的绑定，从而可以直接在钉钉app中管理阿里云企业邮箱的邮件</p><p>使用万网的入口页可以免费开通5年阿里云企业邮箱，申请入口链接：</p><p><a href="https://wanwang.aliyun.com/mail/freemail">https://wanwang.aliyun.com/mail/freemail</a></p><h2 id="2，使用sendcloud的推送服务"><a href="#2，使用sendcloud的推送服务" class="headerlink" title="2，使用sendcloud的推送服务"></a>2，使用sendcloud的推送服务</h2><p>同样可以做到隐藏真实ip的功能，但是sendcloud的免费发信额度较少，仅10条&#x2F;天。</p><h2 id="3，使用阿里云邮件推送服务"><a href="#3，使用阿里云邮件推送服务" class="headerlink" title="3，使用阿里云邮件推送服务"></a>3，使用阿里云邮件推送服务</h2><p>每天有200封免费发信额度。可以购买资源包提高发信数量，目前90元可以买5w条额度</p><h2 id="4，自己搭建邮件中转服务器"><a href="#4，自己搭建邮件中转服务器" class="headerlink" title="4，自己搭建邮件中转服务器"></a>4，自己搭建邮件中转服务器</h2><p>另外你也可以自己搭建邮件中转服务器，这个就比较繁琐了而且需要额外服务器成本。如果对发送邮件的需求量不大，不推荐该方案</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术分享</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>网站优化</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>免费主机，真的是免费吗？</title>
+    <link href="/posts/fc70373e.html"/>
+    <url>/posts/fc70373e.html</url>
+    
+    <content type="html"><![CDATA[<p>免费领一年虚拟主机？真的有这么好的事情吗？今天就来跟大家分享下如何才能够碰到这么好的事情。</p><p>小伙伴，首先咱们冷静下，好好想想，如果商家免费送虚拟主机用，而且时限很长，那他怎么赚钱呢？</p><p>   一、功能收费型<br>　　我在几年前用过国内的一个免费空间，100M空间大小，支持ASP，access数据库，html，提供二级域名，不过流量只给2G，用完了要么掏钱要么去他们论坛灌水赚积分换(当然挣积分也不容易)，另外想绑定顶级域名要掏钱，想开通FTP要掏钱，想支持。net得掏钱…<br>　　二、空间广告型<br>　　有的空间功能什么的看上去不错，不过要在你网站上挂他们的广告，网站你来建，内容你来写，广告费他们赚。变相上缴空间使用费。<br>　　三、虚假免费型<br>　　空间免费，不过使用起来极不稳定，在空间管理后台不停提醒你升级你的空间，直到你精神崩溃点击了升级按钮，他们收费的目的就算达到了。<br>　　四、强制收费型<br>　　免费空间使用的好好的，突然有一天不能访问，被告知网站想再次开通需交费云云，连数据下载的机会都不给，不付费之前的功夫算是白费了。这是免费空间商最恶毒的招术，遇到这样的无赖空间商只能自认倒霉。<br>　　免费空间的策略当然不限于上面几种，总之，天下真没有免费的午餐，所谓的免费也只是空间商们通用的营销策略，一旦你上了他们的船，就会想方设法让你掏钱或者达到其他的营销目的。而现在大大小小免费空间提供商也不少，选择空间也要付出时间成本，还要承担选择不当的风险。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>个人经验</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>站内seo优化需要注意的7个小细节</title>
+    <link href="/posts/862aa78e.html"/>
+    <url>/posts/862aa78e.html</url>
+    
+    <content type="html"><![CDATA[<ol><li><p>安装文章列表插件并在首页放上列表链接，网上这样的插件不少，每更新一篇文章的时候，也会把文章的标题和链接加进去，唯一不好的是，这个插件在我们写一篇文章都要文件重建才能把最新的文章加进去，这个插件也相当于网站地图的功能，而且对用户体验也是友好的，浏览者找到自己需要的讯息.</p></li><li><p>安装sitemap插件并在首页放上列表链接，当我们每当写一篇博文，sitemap插件便会自动更新，把最新写的文章内容的链接加到这个sitemap地图中。这样对搜索引擎是友好的，利于蜘蛛的爬行和抓取.</p></li><li><p>做一个文章位置导航,每篇文章标题的上边(或下边),有“上一篇”、“下一篇”的链接,最好还有相关文章的调用插件,不但增加了相关性,增加了博客的内容聚合,从而增加总体权重,对于访问用户来说,可以便捷的访问与此文章相关的文章,提高了用户体验,而且对于网站优化来说,还可以增加网站的PV,我们知道,如果两个在SEO方面完全相同的网站,搜索引擎会把PV高的排在前面.</p></li><li><p>URL静态化,虽然现在搜索引擎已收录动态网页,但是静态网页,相比动态页面更易被收录,而且链接最好也是原创的.</p></li><li><p>文章分类,tags标签等文字链接都加到首页,这们增加了文章聚合,并且可以增加首页关键词密度,总体上可以提高网站的权重,对于用户体验也是友好的表现.</p></li><li><p>文章标题采用标题加网站名的形式,我们知道,很多网站默认的是一个很长的标题,把网站的标题、副标题都进去了,这样的标题不太符合搜索引擎的习惯,容易被判定为标题重复.特别是文章标题比较短的时候,所以我们要在模板文章里对标题进行修改,使用文章标题加网站标题的形式,而且这样做,可以提高网站的知名度,对网站的宣传是有些积极作用的.</p></li><li><p>首页底部次导航,除了在首页加上一个主导航外,还在首页的下边加一个次导航,链接指向博客首页,而且每篇文章都会有这个位置导航,这样增加了网站首页的内链,对网站优化有很大的帮助.</p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术分享</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>seo优化</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SEO优化与静态URL的方法</title>
+    <link href="/posts/a0c45b4c.html"/>
+    <url>/posts/a0c45b4c.html</url>
+    
+    <content type="html"><![CDATA[<p>法说明开始：<br>网站的URL被分为动态和静态两种，动态的URL也分为三种，第一种是ASP，第二种是PHP，第三种是JSP。静态的URL却只有一种，那就是.html。所以，我们经常通过网址来查看该网站是动态还是静态的。</p><p>针对SEO优化来说，搜索引擎会经常对网站进行爬行。如果访问动态网站就需要通过访问服务器上的数据库，然后进行数据库的转移才能展现。而静态页面却不需要通过这样繁琐的操作。所以对于SEO优化来说，静态网站的优化往往更加有利于优化。本站就是静态页面。</p><p>网站SEO优化动态URL与静态URL</p><p>1、静态化的好处<br>由于在很长一段时间搜索引擎的技术有限，加上动态网站的负荷较大，所以从最开始的收录来说，搜索引擎都是针对静态网站而言的。这并不是说搜索引擎不会收录动态网站，只不过收录的动态网站因为点击之后访问速度以及其它原因，导致排名较静态网站而言更加靠后。有了这样的习惯后，越来越多SEO人员就记住了这样的规律。搜索引擎更加倾向于静态网站的URL收录。<br>静态优点：<br>    1、当用户访问网站的时候，因为是静态网站更方便用户记住，并且通过分享进行传播也更加方便搜索引擎的抓取。<br>    2、静态网站因为只是一个单独的静态页面，并不需要通过访问服务器上的数据库进行转义，只有十几KB的大小，所以静态网站的打开速度往往更快。<br>    3、静态网站并没有漏洞存在，一般来说漏洞的存在都是因为代码不够严谨造成的，而静态网站多是以HTML的形式展现，所以并不会出现漏洞。<br>动态URL实现静态URL的方法<br>    主流的开源系统除了在设计之初就实现了伪静态之外，其它常见的开源系统都属于动态网站。这种网站类型并不利于优化，所以，我们在做这种类型网站的时候，就需要通过一定技术来实现伪静态这种效果。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术分享</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>电脑小白验机</title>
+    <link href="/posts/161d6aca.html"/>
+    <url>/posts/161d6aca.html</url>
+    
+    <content type="html"><![CDATA[<p>一般的验机步骤如下:</p><p>一、拿到快递之后</p><p>很多人直接拿上快递，看都不看就直接回家了。其实对于活动日和折扣日的电子产品，我们都需要尽可能的检查快递外包装。如果快递包装已经破损了,或者明显已经挤压过了，那么抱歉，直接拒收。</p><p>因为即使是京东、顺丰快递这类行业标杆，在快递爆炸增长的活动节假日，也难免会有个别分拣员会比较马虎。</p><p>二、回家拆开快递之后</p><p>   检查外观是否磨损,先不要直接开机,出现以下问题可以直接联系客服退货：<br>      1.机身有明显磨损和划痕掉漆等;<br>      2.用手轻轻划过机器的解封处,接缝处有明显松动;<br>      3.拿起机器摇动之后机器内部有异响<br>      4.开合屏幕,有异响,开合不顺滑<br>      5.最重要的!在做这些步骤之前,一定要检查机身有没有被摸过的痕迹</p><p>而以下这些点并不能说明机器是二手:<br>机器合上后左右接缝不齐,触摸板缝隙大,USB接口紧等等,这些只能说是品控问题,而非机器的本身问题.</p><p>三、开机<br>      1.以上步骤结束之后,就可以开机了<br>这里一定要记住,很多莫名其妙的文章会告诉你不插电就能开机的是二手机.<br>放心,这是胡扯<br>在我拆过的机器里,能够不插电开机的就占一半,所以为了保险起见,我都建议大家插着电开机<br>      2.开机时，观察是否进入小娜引导环节.如果直接进入的是桌面,那么直接认定这台机器必然是二手.<br>      3.开机之后,先观察屏幕部分是否损坏.在之后的联网部分,建议先点击跳过.</p><p>这里解释一下京东的退换规则,联网之后就不支持7天无理由退货了.而如果出现了一些比较大的问题,例如频繁蓝屏,风扇异响,无法开机等,大部分厂家也是可以退换的.<br>      4.大家就可以各种设置密码了,理论上除了“疑难解答”以外的所有服务都可以不要.</p><p>开机步骤以下情况属于不能得出一定是二手的结论<br>    1.    漏光,目前屏幕基本上都是IPS面板,漏光很正常,你重新换一台机器大概率也是这样.只要不是满屏都漏光的情况，就不影响使用！</p><pre><code class="hljs">2.    进入系统慢,初次进系统慢绝对是正常的</code></pre><p>四、进入系统之后<br>    1.在你进入系统之后,面临的第一个问题就是风扇噪音和键盘温度.很多新手都是因为这个而给了差评.<br>但对于刚购买几个小时的机器,这是正常的,不用理会.</p><pre><code class="hljs">2.检查屏幕是否有坏点</code></pre><p>这里介绍一个比较简单的方式,</p><p>右键—个性化—把背景改为绿色,黑色,红色,白色,蓝色</p><p>检查屏幕有没有像素点是坏的.一般情况超过三个以上就已经达不到国家标准了,是可以退货的.</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术分享</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>从零开始的电脑系统重装</title>
+    <link href="/posts/5e79d06.html"/>
+    <url>/posts/5e79d06.html</url>
+    
+    <content type="html"><![CDATA[<p>重装前的准备</p><p>下载系统镜像<br>校验系统镜像MD5是否和官网的匹配<br>下载驱动安装工具万能网卡版（可选）<br>1、下载镜像就不用说了吧…..要是不会的话那我就建议你去电脑点叫人帮忙重装了。</p><p>在这里推荐一下几款系统吧 (无锁定 无广告 无捆绑)</p><p>MSDN[微软原版系统]：MSDN,我告诉你<br>(附：Windows10官方下载工具）<br>Windsys[适量集成软件]：Windsys Project<br>专注于Win7： 专注于Win7<br>温馨提示：请尽量不要下载Ghost系统镜像（如雨林木风、番茄花园、系统之家、装机员系统等）<br>我们强烈建议下载到桌面等其他方便你找到并使用的地方，千万不要放到U盘里，否则下载速度会不可控的减慢甚至无速度<br>2、校验系统镜像MD5这步很重要，否则重装过程镜像文件出错将可能会为你带来麻烦。</p><p>如何校检文件MD5?</p><p>FirPE 重装委提醒您：<br>镜像千万个，校验第一个<br>重装不校验，硬盘两行泪</p><p>3、重装系统之后需要更新相关硬件驱动，所以需要下载有万能网卡的驱动安装工具，否则重装完成后网络没得，声音也没得。当然如果重装Win10的话，这步可以省略，因为Win10自带了很多网卡驱动（精简版Win10除外）。</p><p>驱动精灵万能网卡版</p><p>注意事项</p><p>系统镜像文件不能放在系统盘（通常为C盘）<br>重装前请记得备份C盘里的重要资料！！！<br>开始重装</p><p>一般重装系统有三种方法：</p><p>U盘重装（推荐，操作错误还能重新尝试）<br>在当前系统下进行本地安装（简称本地安装）（不推荐，一旦有一步操作错误，只能使用U盘重装）<br>在当前系统下进行在线重装（简称在线安装）（同上，不推荐，一旦有一步操作错误，只能使用U盘重装）<br>U盘重装</p><p>U盘重装通常又分成两种：</p><p>U盘制作启动盘进入PE重装（推荐，制作启动盘后以后将能一盘多用，例如维护，修复系统呀，系统崩溃后还原数据呀等等）<br>U盘烧录ISO镜像文件进行重装（比较推荐，简单，向导式重装，但是以后不能够用于维护系统）<br>如何使用UltraISO制作启动盘<br>PE重装</p><p>首先制作个PE启动盘并且学会进入PE</p><p>如何制作启动盘并进入PE？<br>注意，制作启动盘会格式化U盘里的数据，请提前备份好！</p><p>制作完启动盘并且进入PE后，将开始重装系统：</p><p>五选一</p><p>如何在PE内使用EasyRC安装系统？（简单，自动判断UEFI&#x2F;传统BIOS启动并且设置引导，还会自动格式化系统盘，就是BUG较多？）</p><p>如何在PE内使用EasyRC在线重装系统？（简单，自动下载系统，自动格式化系统分区并安装系统到系统分区，还会自动修复系统引导）</p><p>如何在PE内使用Dism++安装系统？（简单，自动判断UEFI&#x2F;传统BIOS启动并且设置引导，还会自动格式化系统盘，就是入口有点深？）</p><p>如何在PE内使用WinNTSetup安装系统？（需要点小判断，因为不能够自动判断启动方式，甚至还不会自动格式化系统盘）</p><p>如何在PE内使用CGI安装系统？（简单，自动判断UEFI&#x2F;传统BIOS启动并且设置引导，还会自动格式化系统盘，但有些奇怪的BUG）</p><p>本地安装（不建议）</p><p>我个人是不太推荐这种安装方式的，因为如果不小心漏了一个步骤，都要使用U盘重新安装</p><p>如何在当前系统使用EasyRC进行本地安装？</p><p>在线重装（不建议）</p><p>同上，不推荐这种安装方式，因为如果不小心漏了一个步骤，都要使用U盘重新安装。</p><p>如何在当前系统使用EasyRC进行本地安装？</p><p>常见问题</p><p>问： 我电脑是联想&#x2F;华硕&#x2F;戴尔&#x2F;惠普（或其他品牌），也是一样操作的吗？</p><p>答： 是的，此教程适用于所有品牌电脑（包括台式机）。</p><p>问： 没有U盘怎么办？</p><p>答： 如果电脑还可以使用，可以尝试本地安装系统，但如果不小心漏了一个步骤，都要使用U盘重新安装。</p><p>如果电脑无法使用，那您可以使用 内存卡+读卡器 来代替U盘，但是如果内存卡和读卡器也没有的话，您可以使用一台ROOT后的手机（如何在手机上制作启动盘并进入PE）。如果您也没ROOT后的手机，那么我也没得办法，您可以自行去电脑店维修。</p><p>问：为什么不提倡用Ghost（.gho)？</p><p>答：Ghost现在已经淘汰（压缩率低、还原速度慢等），目前所流行的系统镜像格式为 WIM、ESD、SNA。</p><p>问：为什么下载的系统镜像是ISO格式？</p><p>答：正常现象，ISO格式为系统镜像打包格式（ISO内含有WIM或ESD或GHO系统镜像）。</p><p>问： EasyRC的WinPE模块是什么？可以解压吗？</p><p>答： WinPE模块是EasyRC的重装环境，无需解压，与EasyRC放在一起即可。</p><p>问:  开机提示BOOTMGR is missing &#x2F; NTLTR is missing，怎么办？</p><p>答: 系统引导丢失，进入PE后使用DISM++修复系统引导即可。</p><p>问: 这个方法装的系统是正版的吗？</p><p>答: 正版盗版体验一致，取决于您有没有花钱去购买Windows。打击盗版，支持正版。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>个人经验</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>联通解除流量封顶服务1年</title>
+    <link href="/posts/87cc57e0.html"/>
+    <url>/posts/87cc57e0.html</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://icon.qiantucdn.com/20200520/062f506006433a98d7de4d47a65b472e2" alt="请输入图片描述"><br>查任意联通手机号流量是否封顶以及解除流量封顶服务1年或永久。</p><p>联通用户现在解除流量封顶了，估计很多人都不知道把，我也是才知道，网上一查 居然出来2年多了。<br>参与方法：<br>打开联通手厅APP顶部搜【流量封顶】进入选择当月 或 12个月有效。有的用户选不了12个月。<br>PS：有些用户会出现永久，不显示有效时间</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>七杂八杂</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>腾讯管家域名报毒红名申诉地址集合</title>
+    <link href="/posts/56bf6fe7.html"/>
+    <url>/posts/56bf6fe7.html</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://s1.ax1x.com/2020/05/15/YrpdzV.png" alt="请输入图片描述"><br>安全联盟：<a href="https://appeal.anquan.org/">https://appeal.anquan.org/</a></p><p>微信地址：<a href="https://txwz.qq.com/wechat/urlcomplain?src=2&amp;code=0210DkAi04qkkm1ZpZwi06mjAi00DkA5&amp;state=STATE">https://txwz.qq.com/wechat/urlcomplain?src=2&amp;code=0210DkAi04qkkm1ZpZwi06mjAi00DkA5&amp;state=STATE</a></p><p>管家地址：<a href="https://guanjia.qq.com/online_server/complain_url.html">https://guanjia.qq.com/online_server/complain_url.html</a></p><p>腾讯安全：<a href="https://urlsec.qq.com/complain.html">https://urlsec.qq.com/complain.html</a></p><p>腾讯人工：800090241</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>个人经验</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>宝塔linux面板命令大全</title>
+    <link href="/posts/9206ef5f.html"/>
+    <url>/posts/9206ef5f.html</url>
+    
+    <content type="html"><![CDATA[<p>安装宝塔</p><p>Centos安装脚本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install.sh &amp;&amp; sh install.sh<br></code></pre></td></tr></table></figure><p>Ubuntu&#x2F;Deepin安装脚本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">wget -O install.sh http://download.bt.cn/install/install-ubuntu.sh &amp;&amp; sudo bash install.sh<br></code></pre></td></tr></table></figure><p>Debian安装脚本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">wget -O install.sh http://download.bt.cn/install/install-ubuntu.sh &amp;&amp; bash install.sh<br></code></pre></td></tr></table></figure><p>Fedora安装脚本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">wget -O install.sh http://download.bt.cn/install/install.sh &amp;&amp; bash install.sh<br></code></pre></td></tr></table></figure><p>管理宝塔</p><p>停止</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">/etc/init.d/bt stop<br></code></pre></td></tr></table></figure><p>启动</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">/etc/init.d/bt start<br></code></pre></td></tr></table></figure><p>重启</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">/etc/init.d/bt restart<br></code></pre></td></tr></table></figure><p>卸载</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">/etc/init.d/bt stop &amp;&amp; chkconfig --del bt &amp;&amp; rm -f /etc/init.d/bt &amp;&amp; rm -rf /www/server/panel<br></code></pre></td></tr></table></figure><p>查看当前面板端口</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">cat /www/server/panel/data/port.pl<br></code></pre></td></tr></table></figure><p>修改面板端口，如要改成8881（centos 6 系统）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs other">echo &#x27;8881&#x27; &gt; /www/server/panel/data/port.pl &amp;&amp; /etc/init.d/bt restart<br>iptables -I INPUT -p tcp -m state --state NEW -m tcp --dport 8881 -j ACCEPT<br>service iptables save<br>service iptables restart<br></code></pre></td></tr></table></figure><p>修改面板端口，如要改成8881（centos 7 系统）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs other">echo &#x27;8881&#x27; &gt; /www/server/panel/data/port.pl &amp;&amp; /etc/init.d/bt restart<br>firewall-cmd --permanent --zone=public --add-port=8881/tcp<br>firewall-cmd --reload<br></code></pre></td></tr></table></figure><p>强制修改MySQL管理(root)密码，如要改成123456</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">cd /www/server/panel &amp;&amp; python tools.py root 123456<br></code></pre></td></tr></table></figure><p>修改面板密码，如要改成123456</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">cd /www/server/panel &amp;&amp; python tools.py panel 123456<br></code></pre></td></tr></table></figure><p>查看宝塔日志</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">cat /tmp/panelBoot.pl<br></code></pre></td></tr></table></figure><p>查看软件安装日志</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">cat /tmp/panelExec.log<br></code></pre></td></tr></table></figure><p>站点配置文件位置</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">/www/server/panel/vhost<br></code></pre></td></tr></table></figure><p>删除域名绑定面板</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">rm -f /www/server/panel/data/domain.conf<br></code></pre></td></tr></table></figure><p>清理登陆限制</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">rm -f /www/server/panel/data/*.login<br></code></pre></td></tr></table></figure><p>查看面板授权IP</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">cat /www/server/panel/data/limitip.conf<br></code></pre></td></tr></table></figure><p>关闭访问限制</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">rm -f /www/server/panel/data/limitip.conf<br></code></pre></td></tr></table></figure><p>查看许可域名</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">cat /www/server/panel/data/domain.conf<br></code></pre></td></tr></table></figure><p>关闭面板SSL</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">rm -f /www/server/panel/data/ssl.pl &amp;&amp; /etc/init.d/bt restart<br></code></pre></td></tr></table></figure><p>查看面板错误日志</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs other">cat /tmp/panelBoot<br></code></pre></td></tr></table></figure><p>查看数据库错误日志</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">cat <span class="hljs-regexp">/www/</span>server<span class="hljs-regexp">/data/</span>*.err<br></code></pre></td></tr></table></figure><p>站点配置文件目录(nginx)<br>&#x2F;www&#x2F;server&#x2F;panel&#x2F;vhost&#x2F;nginx</p><p>站点配置文件目录(apache)<br>&#x2F;www&#x2F;server&#x2F;panel&#x2F;vhost&#x2F;apache</p><p>站点默认目录<br>&#x2F;www&#x2F;wwwroot</p><p>数据库备份目录<br>&#x2F;www&#x2F;backup&#x2F;database</p><p>站点备份目录<br>&#x2F;www&#x2F;backup&#x2F;site</p><p>站点日志<br>&#x2F;www&#x2F;wwwlogs</p><p>Nginx服务管理</p><p>nginx安装目录<br>&#x2F;www&#x2F;server&#x2F;nginx</p><p>启动<br>&#x2F;etc&#x2F;init.d&#x2F;nginx start</p><p>停止<br>&#x2F;etc&#x2F;init.d&#x2F;nginx stop</p><p>重启<br>&#x2F;etc&#x2F;init.d&#x2F;nginx restart</p><p>启载<br>&#x2F;etc&#x2F;init.d&#x2F;nginx reload</p><p>nginx配置文件<br>&#x2F;www&#x2F;server&#x2F;nginx&#x2F;conf&#x2F;nginx.conf</p><p>Apache服务管理</p><p>apache安装目录<br>&#x2F;www&#x2F;server&#x2F;httpd</p><p>启动<br>&#x2F;etc&#x2F;init.d&#x2F;httpd start</p><p>停止<br>&#x2F;etc&#x2F;init.d&#x2F;httpd stop</p><p>重启<br>&#x2F;etc&#x2F;init.d&#x2F;httpd restart</p><p>启载<br>&#x2F;etc&#x2F;init.d&#x2F;httpd reload</p><p>apache配置文件<br>&#x2F;www&#x2F;server&#x2F;apache&#x2F;conf&#x2F;httpd.conf</p><p>MySQL服务管理</p><p>mysql安装目录<br>&#x2F;www&#x2F;server&#x2F;mysql<br>phpmyadmin安装目录<br>&#x2F;www&#x2F;server&#x2F;phpmyadmin<br>数据存储目录<br>&#x2F;www&#x2F;server&#x2F;data<br>启动<br>&#x2F;etc&#x2F;init.d&#x2F;mysqld start<br>停止<br>&#x2F;etc&#x2F;init.d&#x2F;mysqld stop<br>重启<br>&#x2F;etc&#x2F;init.d&#x2F;mysqld restart<br>启载<br>&#x2F;etc&#x2F;init.d&#x2F;mysqld reload<br>mysql配置文件<br>&#x2F;etc&#x2F;my.cnf<br>FTP服务管理</p><p>ftp安装目录<br>&#x2F;www&#x2F;server&#x2F;pure-ftpd<br>启动<br>&#x2F;etc&#x2F;init.d&#x2F;pure-ftpd start<br>停止<br>&#x2F;etc&#x2F;init.d&#x2F;pure-ftpd stop<br>重启<br>&#x2F;etc&#x2F;init.d&#x2F;pure-ftpd restart<br>ftp配置文件<br>&#x2F;www&#x2F;server&#x2F;pure-ftpd&#x2F;etc&#x2F;pure-ftpd.conf<br>PHP服务管理</p><p>php安装目录<br>&#x2F;www&#x2F;server&#x2F;php</p><p>启动(请根据安装PHP版本号做更改，例如：&#x2F;etc&#x2F;init.d&#x2F;php-fpm-54 start)<br>&#x2F;etc&#x2F;init.d&#x2F;php-fpm-{52|53|54|55|56|70|71} start</p><p>停止(请根据安装PHP版本号做更改，例如：&#x2F;etc&#x2F;init.d&#x2F;php-fpm-54 stop)<br>&#x2F;etc&#x2F;init.d&#x2F;php-fpm-{52|53|54|55|56|70|71} stop</p><p>重启(请根据安装PHP版本号做更改，例如：&#x2F;etc&#x2F;init.d&#x2F;php-fpm-54 restart)<br>&#x2F;etc&#x2F;init.d&#x2F;php-fpm-{52|53|54|55|56|70|71} restart</p><p>启载(请根据安装PHP版本号做更改，例如：&#x2F;etc&#x2F;init.d&#x2F;php-fpm-54 reload)<br>&#x2F;etc&#x2F;init.d&#x2F;php-fpm-{52|53|54|55|56|70|71} reload</p><p>配置文件(请根据安装PHP版本号做更改，例如：&#x2F;www&#x2F;server&#x2F;php&#x2F;52&#x2F;etc&#x2F;php.ini)<br>&#x2F;www&#x2F;server&#x2F;php&#x2F;{52|53|54|55|56|70|71}&#x2F;etc&#x2F;php.ini</p><p>Redis服务管理</p><p>redis安装目录<br>&#x2F;www&#x2F;server&#x2F;redis</p><p>启动<br>&#x2F;etc&#x2F;init.d&#x2F;redis start</p><p>停止<br>&#x2F;etc&#x2F;init.d&#x2F;redis stop</p><p>redis配置文件<br>&#x2F;www&#x2F;server&#x2F;redis&#x2F;redis.conf</p><p>Memcached服务管理</p><p>memcached安装目录<br>&#x2F;usr&#x2F;local&#x2F;memcached</p><p>启动<br>&#x2F;etc&#x2F;init.d&#x2F;memcached start</p><p>停止<br>&#x2F;etc&#x2F;init.d&#x2F;memcached stop</p><p>重启<br>&#x2F;etc&#x2F;init.d&#x2F;memcached restart</p><p>启载<br>&#x2F;etc&#x2F;init.d&#x2F;memcached reload</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>个人经验</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>查出你的微信好友是否删了你</title>
+    <link href="/posts/44a1bc6e.html"/>
+    <url>/posts/44a1bc6e.html</url>
+    
+    <content type="html"><![CDATA[<p>注意：该方法安卓、苹果均适用<br>其实我们通过建群就可以检测<br>话不多说，下面直接上详细教程！<br><img src="https://s1.ax1x.com/2020/05/14/YwqcTO.png" alt="请输入图片描述"><br>详细操作步骤<br>Step1：<br>进入微信主界面，然后点击微信页面右上角的号，选择「发起群聊」<br>Step2：<br>点选你想测试的微信好友，然后点选右上角的「完成」即可发起群聊</p><p>Step3：<br>这个时候，你只需要回到微信主界面，进入你刚创建的这个群里，你就可以看到「加群失败的群员名单」<br>其中以「蓝色字体显示」的好友，也就是已经把你删掉的好友了。建议截个图，待会慢慢删！<br>注意：这个时候千万不要在群里发任何消息！一旦你发了消息，那么这个群就真的成立，被对方发现！<br>验证完后……<br>Step4：<br>在群聊界面，点击左上角<br>，上划至底部，点击「删除并退出」，悄无声息的离开这个群！<br>突然想起「徐志摩的诗」，感觉好形象：<br>“轻轻的我走了，正如我轻轻地来，挥一挥衣袖，不再走一片云彩。”<br>不皮了，那么现在你就可以删掉那些「提示你需要验证的人」了。<br>重点来了……<br>如果群聊里有下面这样的提示——XX拒绝加入群聊<br>那我只能抱歉告诉你：对方已经把你拉进黑名单了！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术分享</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>QQ免费注册9位QQ靓号</title>
+    <link href="/posts/24e7a18f.html"/>
+    <url>/posts/24e7a18f.html</url>
+    
+    <content type="html"><![CDATA[<p><img src="http://p2.so.qhimgs1.com/t026444506b50a5516e.jpg" alt="请输入图片描述"><br>激活规则：获取的“靓号”，登录QQ手机版（ios或安卓平台）即可自动激活，激活后方可使用其他产品。</p><ol start="2"><li>回收规则：</li></ol><p>（1）免费注册获取的“靓号”，需在一周内完成激活，否则系统将自动回收。</p><p>（2）获取的“靓号”遵循现有的QQ帐号回收规则。</p><p>注册地址：<a href="https://ssl.zc.qq.com/v3/index-chs.html?type=3">https://ssl.zc.qq.com/v3/index-chs.html?type=3</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>最新线报</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>替换谷歌cdn实现外国访问</title>
+    <link href="/posts/d91f67f2.html"/>
+    <url>/posts/d91f67f2.html</url>
+    
+    <content type="html"><![CDATA[<p>大家平时上网查资料的时候会发现，stackoverflow等国外网站打开都特别慢，而有些网站的 reCaptcha 验证码则根本显示不出来。这是因为这些网站使用的一些资源托管在 Google CDN 上，而后者在中国大陆是无法访问的。对此，国内一些大学、厂商已经提供了相应的国内资源镜像，只需要我们将这些资源 URL 重定向至国内镜像地址即可，下面，就以火狐浏览器 Firefox 为例，教大家如何通过使用 Gooreplacer 插件来实现这样的功能：</p><p>（1）安装 Firefox , 并前往 gooreplacer安装插件；</p><p>（2）单击浏览器右上角如下图标，打开 gooreplacer 设置页面：<br>（3）在设置页面中，勾选【重定向】，单击【新增】按钮： </p><p>（5）依此类推，对如下网址也依次进行设置：<br>ajax.googleapis.com          &#x3D;&#x3D;&#x3D;&gt; ajax.lug.ustc.edu.cn<br><a href="http://www.google.com/recaptcha">www.google.com/recaptcha</a>     &#x3D;&#x3D;&#x3D;&gt; recaptcha.net&#x2F;recaptcha<br>themes.googleusercontent.com &#x3D;&#x3D;&#x3D;&gt; google-themes.lug.ustc.edu.cn</p><p>（7）也可以【导入】我设置好的配置文件（以下代码另存为 gooreplacer.gson 后导入）：<br>{<br>  “createBy”: “<a href="http://liujiacai.net/gooreplacer/&quot;">http://liujiacai.net/gooreplacer/&quot;</a>,<br>  “version”: “3.11.0”,<br>  “createAt”: “2020&#x2F;2&#x2F;26 下午7:10:53”,<br>  “redirect-rules”: [<br>    {<br>      “src”: “<a href="http://www.google.com/recaptcha&quot;">www.google.com/recaptcha&quot;</a>,<br>      “kind”: “wildcard”,<br>      “dst”: “recaptcha.net&#x2F;recaptcha”,<br>      “enable”: true<br>    },<br>    {<br>      “src”: “ajax.googleapis.com”,<br>      “kind”: “wildcard”,<br>      “dst”: “ajax.lug.ustc.edu.cn”,<br>      “enable”: true<br>    },<br>    {<br>      “src”: “themes.googleusercontent.com”,<br>      “kind”: “wildcard”,<br>      “dst”: “google-themes.lug.ustc.edu.cn”,<br>      “enable”: true<br>    }<br>  ],<br>  “cancel-rules”: [],<br>  “request-headers”: [],<br>  “response-headers”: []<br>}<br><img src="http://p1.so.qhimgs1.com/t02e2db83201a6189e1.jpg" alt="请输入图片描述"><br><img src="http://p0.so.qhimgs1.com/t02e2db83201a6189e1.jpg" alt="请输入图片描述"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术分享</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>查询自己名下有几个微信号</title>
+    <link href="/posts/7d6891e.html"/>
+    <url>/posts/7d6891e.html</url>
+    
+    <content type="html"><![CDATA[<p>现在是可以通过微信帮助中心直接查看名下微信账户<br>新增绑卡、注册账户提示身份证注册超限 输入信息验证后查询名下账户并将账户清除到5个以下 即可继续注册<br>也可以查询下自己的身份证信息有没有泄露被别人注册了微信 多余自己没用的可以直接清除掉<br>打开微信-我-设置-通用-辅助功能-微信支付-帮助中心-实名问题-查询名下账户<br><img src="https://www.itfd.cn/content/uploadfile/202005/799b1588894104.jpg" alt="请输入图片描述"><br>输入自己身份证和姓名 人脸识别后可以查看到名下微信号<br>发现不是自己在用的微信 直接清除掉 以免造成不必要损失<br><img src="https://www.itfd.cn/content/uploadfile/202005/d0091588894105.jpg" alt="林木"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>最新线报</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>微信钱转QQ钱包</title>
+    <link href="/posts/f9b6ea2.html"/>
+    <url>/posts/f9b6ea2.html</url>
+    
+    <content type="html"><![CDATA[<p>最近发现个好东西，下面教大家如何把微信钱转到QQ，然后使用QQ支付，教程看下图即可！</p><p>教程：<img src="https://jsd.15xd.cn/gh/linmu136/linmu/2370668362.png" alt="20200423041542mom1-cn43.png"><br><img src="https://jsd.15xd.cn/gh/linmu136/linmu/674873862.png" alt="20200423041547mom1-cn9.png"><br><img src="https://jsd.15xd.cn/gh/linmu136/linmu/2993522326.png" alt="20200423041552mom1-cn85.png"><br><img src="https://jsd.15xd.cn/gh/linmu136/linmu/1399120926.png" alt="20200423041528mom1-cn13.png"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>个人经验</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>2020解除腾讯网址报红教程</title>
+    <link href="/posts/1afee6e1.html"/>
+    <url>/posts/1afee6e1.html</url>
+    
+    <content type="html"><![CDATA[<p>自己营业的业务网站在腾讯被显示非官方</p><p>客户在QQ打开进不去只能复制到浏览器很麻烦</p><p>用防红直连，接口源还容易跑路，怎么办呢</p><p>今天就教大家一种办法解除非官方提示</p><p>这个我是亲测成功了，成功率有75%以上<br><img src="https://yt.123yes.me/typecho/uploads/2020/l.jpg" alt="请输入图片描述"></p><p>教程如下</p><hr><p>第一步 微信关注（腾讯安全反诈骗实验室）公众号</p><hr><p>第二步 关注后右下角联系我们找到网站申诉</p><hr><p>第三步 输入自己的网站 一级域名 就行</p><p>ps:要删除域名的*和@的泛解析要不然容易失败</p><hr><p>第四步 提交后可以选择我是站长</p><p>然后根据提示放好文件，如果腾讯能验证过去，那么就比较简单如果验证失败请选择我不是站长</p><hr><p>第四步 第一种情况，选择我是站长后提交相关东西就行，营业资本截屏网站的首页和副页就行</p><p>第四步 第二种情况，选择我不是站长后身份证等相关请填写域名注册时候用于实名的身份证账号和密码 如果有备案请填写备案码没有请忽略 营业资本同上</p><hr><p>PS:请填写真实的身份证信息 tx会根据wh什么的查找域名信息进行核对 正确填写加大成功率，注意一定要删解析，不要用腾讯代刷网&#x2F;代挂网&#x2F;秒赞网进行提交，最好用swap互联网站进行提交 成功率高 用上面三个网站提交一定会不成功 </p><hr><p>当所有步骤完成后，提交申请等待通过就行 只要审核通过那么你的域名就不会白在tx不会受到限制</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>个人经验</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>备案经验</title>
+    <link href="/posts/b51516d6.html"/>
+    <url>/posts/b51516d6.html</url>
+    
+    <content type="html"><![CDATA[<p>前言我这个域名年头就备案好了，一直太懒没把经由记载下来，今天下班的时间下大雨回不去，正好把这个补上，由于时间已往太久，有些地方不太记得了。关于备案的一些基础知识</p><ol><li>甚备案备案就是把你网站主理人的资料、网站的资推测工信部去挂号下，主要照旧为了管控。备案貌似只有中国才有，外洋不知道有木有，有待查证</li><li>一定要备案么纷歧定，许多外洋节点的服务器不备案也没啥问题，香港云服务器也不需要，以是许多不想备案的人都买外洋的服务器，可是速率没那么理想，海内的云服务器提供商都是要求必须备案的</li><li>网站没做好可以备案吗绝对可以！我之前就是以为必须网站做好了才可以最先备案，以是延长了很长时间。特殊注重，备案时代网站一定不能打开，也就是必须处于无法会见的状态！至于为什么要这样，不得而知。我的备案经由下面以阿里云备案为例先容一下个人网站备案经由，其它公司的应该都差不多。</li></ol><p>开始备案过程。</p><p>1.准备质料个人备案只需要一张身份证即可，不需要其它证实质料</p><p>2.，一台服务器最多可以申请5个备案服务号，每一个备案号可以用来备案一次，用完了的话你只能找被人要了。</p><p>3.. 填写主体信息会见:填写备案服务号，填写主体信息（个人网站的主体就是你本人），建议所有填写真实信息，以防电话回访</p><p>4.剩下的就是漫长等候了，阿里云的所有审核都很快，我在阿里云一共花了4天时间，唯独工信部的效率就不敢捧场了，等了12天才有效果，前后加起来一共是15天左右。等候备案通过等候历程中确保联系方式流通，工信部的人可能会打电话抽查</p><p>5.备案通过之后你会收到一封工信部发的邮件，内里有你的备案密码，备案号： 然后约莫等候1个小时左右，网站就可以会见了。然后将备案号添加到你的网站底部，并链接到<a href="http://www.miitbeian.gov.cn/%E4%B8%80%E4%BA%9B%E6%B3%A8%E9%87%8D%E4%BA%8B%E9%A1%B9%E8%8B%A5%E6%98%AF%E4%BD%A0%E7%9A%84%E8%B5%84%E6%96%99%E6%9C%89%E5%8F%98%E6%8D%A2%EF%BC%8C%E6%9C%80%E5%A5%BD%E8%87%AA%E5%8A%A8%E9%87%8D%E6%96%B0%E5%A4%87%E6%A1%88%EF%BC%8C%E4%BB%A5%E5%85%8D%E8%A2%AB%E5%B7%A5%E4%BF%A1%E9%83%A8%E6%8A%BD%E6%9F%A5%E5%88%B0%E5%8F%AF%E8%83%BD%E4%BD%9C%E5%BA%9F%E4%BD%A0%E7%9A%84%E5%A4%87%E6%A1%88%E5%8F%B7%EF%BC%9B%E5%A4%87%E6%A1%88%E4%B9%90%E6%88%90%E5%90%8E%E4%B8%8D%E8%A6%81%E5%AE%B9%E6%98%93%E5%B0%86%E5%9F%9F%E5%90%8D%E9%87%8D%E6%96%B0%E6%8C%87%E5%90%91%E5%85%B6%E5%AE%83IP%EF%BC%8C%E4%BB%A5%E5%85%8D%E8%A2%AB%E5%8F%91%E7%8E%B0%EF%BC%9B%E6%9B%BF%E6%8D%A2%E7%BB%9F%E4%B8%80%E5%AE%B6%E6%9C%8D%E5%8A%A1%E5%95%86%E7%9A%84%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8D%E9%9C%80%E8%A6%81%E9%87%8D%E6%96%B0%E5%A4%87%E6%A1%88%EF%BC%8C%E6%9B%BF%E6%8D%A2%E5%B7%AE%E5%88%AB%E6%9C%8D%E5%8A%A1%E5%95%86%E5%B0%B1%E9%9C%80%E8%A6%81%E9%87%8D%E6%96%B0%E5%A4%87%E6%A1%88%EF%BC%9B">http://www.miitbeian.gov.cn/一些注重事项若是你的资料有变换，最好自动重新备案，以免被工信部抽查到可能作废你的备案号；备案乐成后不要容易将域名重新指向其它IP，以免被发现；替换统一家服务商的云服务器不需要重新备案，替换差别服务商就需要重新备案；</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>个人经验</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>白嫖1年阿里云1核1G1M服务器</title>
+    <link href="/posts/9c44eaf5.html"/>
+    <url>/posts/9c44eaf5.html</url>
+    
+    <content type="html"><![CDATA[<p>该活动大家可以找找香港的手机号注册并绑定paypal或外币信用卡才可以领取试用<br>（没有香港手机号的话在某宝上想办法）<br>有40多款热卖产品，价值450-1300美元的服务，能撸到就是赚到！<br><img src="https://www.itfd.cn/content/uploadfile/202004/f8e41587429472.jpg" alt="请输入图片描述"><br>配置可以选择1核1G的服务器12个月，也可以选择2核2G的服务器3个月<br><img src="https://www.itfd.cn/content/uploadfile/202004/86a21587429486.jpg" alt="请输入图片描述"><br>活动地址：<a href="https://www.alibabacloud.com/zh/campaign/free-trial">https://www.alibabacloud.com/zh/campaign/free-trial</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>最新线报</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>热点使用教程（root版）</title>
+    <link href="/posts/97c88889.html"/>
+    <url>/posts/97c88889.html</url>
+    
+    <content type="html"><![CDATA[<p>软件下载:<a href="https://free.hehost.cn/home/download/app/Hotspotad/Hotspotad.apk">软件下载</a><br>1.打开”软件”<br><img src="https://jsd.15xd.cn/gh/linmu136/linmu/1-1.jpg" alt="第1步"></p><p>2.点击”右上角菜单”；选择”设置”</p><p><img src="https://jsd.15xd.cn/gh/linmu136/linmu/1-2.jpg" alt="第2"><br>3.打开”自动重新中继”</p><p><img src="https://jsd.15xd.cn/gh/linmu136/linmu/1-3.jpg" alt="请输入图片描述"><br>4.打开”云流APP”并且连接上服务器</p><p>5.开启”热点WIFI”</p><p>6.给予”ROOT权限”<br><img src="https://jsd.15xd.cn/gh/linmu136/linmu/1-6.jpg" alt="请输入图片描述"></p><p>7.给予”ROOT永久权限”<br><img src="https://jsd.15xd.cn/gh/linmu136/linmu/1-6.jpg" alt="请输入图片描述"></p><p>8.显示”中继成功”<br><img src="https://jsd.15xd.cn/gh/linmu136/linmu/1-8.jpg" alt="请输入图片描述"></p><p>9.锁定”内存后台”避免系统将软件退出</p><p>10.锁定”电池白名单”</p><p>客户端</p><p>1.找到热点机开出的热点，并输入密码连接</p><p>1.连接成功，显示服务器IP</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>免流，云免</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>APN接入点设置为WAP</title>
+    <link href="/posts/1cc746ef.html"/>
+    <url>/posts/1cc746ef.html</url>
+    
+    <content type="html"><![CDATA[<p>若线路上说明了”需要Wap接入点”，那么请操作下面的步骤，若未说明需要Wap接入点，请使用Net接入点进行使用！</p><p>一、iPhone设置方法</p><p>1.下载配置文件</p><p>请IOS使用Safari浏览器打开&gt;&gt;&gt;移动点击这里</p><p>请IOS使用Safari浏览器打开&gt;&gt;&gt;联通点击这里</p><p>提示：想要恢复原来的net接入点？直接删除安装的Wap接入点描述文件即可！</p><p>二、安卓设置方法</p><p>提示：安卓手机一般自带移动或联通的Wap接入点，直接切换到Wap然后开关飞行模式一次即可，无需进行修改编辑，若没有再进行下面的添加设置。<br>进入手机主菜单寻找”连接功能&#x2F;数据连接&#x2F;承载方式”等类似功能的菜单，进行”数据接入点&#x2F;网络接入点”的设置，新增接入点（APN）或者是编辑接入点。接入点主要的参数设置如下，若所选择的机型参数在以下没有设置可以选择其默认的参数设置。</p><p>1.联通Wap接入点</p><p>（一）连接名称：3gwap<br>（二）数据承载方式：分组数据<br>（三）接入点（APN）：3gwap<br>（四）客户名：无<br>（五）密码：无<br>（六）鉴定：普通<br>（七）代理服务器地址：10.0.0.172<br>（八）主页：<a href="http://www.wo.com.cn/">http://www.wo.com.cn</a><br>（九）使用接入点：自动 </p><p>若在选项菜单中有”高级选项”设置的，请按以下步骤设置。 </p><p>（一）网络类型：ipv4<br>（二）手机IP地址：自动<br>（三）DNS地址：自动<br>（四）代理服务器地址：10.0.0.172<br>（五）代理端口号码：80</p><p>如下图：<br><img src="https://jsd.15xd.cn/gh/linmu136/linmu/lt.jpg" alt="联通接入点"></p><p>2.移动Wap接入点</p><p>（一）连接名称：cmwap<br>（二）数据承载方式：分组数据<br>（三）接入点（APN）：cmwap<br>（四）客户名：无<br>（五）密码：无<br>（六）鉴定：普通<br>（七）代理服务器地址：10.0.0.172<br>（八）其他默认即可 </p><p>若在选项菜单中有”高级选项”设置的，请按以下步骤设置。 </p><p>（一）网络类型：ipv4<br>（二）手机IP地址：自动<br>（三）DNS地址：自动<br>（四）代理服务器地址：10.0.0.172<br>（五）代理端口号码：80</p><p>如下图：<br><img src="https://jsd.15xd.cn/gh/linmu136/linmu/yd.jpg" alt="联通接入点"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>免流，云免</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>免流详细介绍与认知</title>
+    <link href="/posts/b6d4610a.html"/>
+    <url>/posts/b6d4610a.html</url>
+    
+    <content type="html"><![CDATA[<p>免流详细介绍以及认知</p><p>什么是免流？免流是如何来的？原理是什么？</p><p>什么是免流顾名思义就是免费流量不用花钱的或者理解为及其低价的，那它是怎么来的呢？记住所有免流都是需要手机卡的而为我们提供手机卡的只有三大运营商爸爸我们只能依靠他们也需要他们，原理这里我就不讲什么专业术语了就用我所知道的知识翻译成平常人都能理解的话是这样子的三大运营商都有个流量白名单系统当用户在白名单里面的时候流量就是不计费的常见的就是手机营业厅，指定app免流或者赛事免流或者跟腾讯合作的大王卡对腾讯app免流这些东西都运用到白名单系统他们需要这种商业模式我们也需要这种便民服务，最后比较重要的是我们通过服务器伪装模式进入免流白名单从而达到免流的效果。</p><p>我该如何使用免流？</p><p>就拿我的云流量来说吧首先介绍下林木云流量是基于openvpn的一个免流平台它也是属于木头人网络科技旗下的一个子平台官网在这里<a href="https://yumian.alm5.cn/">https://yumian.alm5.cn</a><br>首先你需要下载app如果是安卓的就在这里下载<a href="https://yt.123yes.me/app/">https://yt.123yes.me/app/</a><br>如果你是苹果用户就有点麻烦了可以看看安装教程<br><a href="https://yumian.alm5.cn/course/IOS/index.html">https://yumian.alm5.cn/course/IOS/index.html</a><br>然后就去这里购买个测试卡密<a href="https://linmu.alm5.cn/">https://linmu.alm5.cn/</a><br>然后去软件里注册个账号把购买的卡密充值进去如果是苹果请在这里注册账号<a href="https://user.hehost.cn/home/login.php">https://user.hehost.cn/home/login.php</a><br>然后选择对应你地区的线路连接就可以测试了优先选择全国线路。</p><p>如何测试我手机卡是否免流？</p><p>当你账号卡密等等一切要准备的东西都准备好了就开始我们惊险刺激的测试环节了<br>选择线路的话我建议优先选择全国线路然后就是省市线路分类最多到市了一个市免得那肯定免的，<br>测试之前先截图下自己卡内剩余流量以防备忘，其次连接上线路去下载20M左右的东西随便是什么不要太多也不要太少太多浪费流量太少测试不出来<br>下载之后去查看卡内流量又没有变化如果少了几十KB这样子那就是免流了如果扣除了20M左右的流量那就是不免流<br>还有一种情况就是流量延迟一般联通卡会有这种情况就是下载之后流量一点不懂这个时候你就需要断开流量断开软件等待三十分或者更长等他刷新出来就可以判断你是否免流了。<br>软件提示“登陆信息错误”</p><p>有用户在使用9.0以上的安卓版本时会遇到如下情况</p><p>其实就是你账号密码输入错误了，别急下图带你一步了解</p><p>上图只是你保存了账号密码并没有进行判断，当你点开软件里面的功能时才会判断密码是否正确，所以就出现了登陆信息错误的提示。<br>手机卡在异地我该如何选择线路？</p><p>如果手机卡在异地请优先选择全国线路进行测试随后是卡归属地线路最后是人在省份的线路。<br>节点与线路以及流量包有什么区别？</p><p>经常会有用户甚至是代理搞不清楚节点跟线路问题这里我来详细讲一下！<br>节点可以说它是一个服务器不同的节点取决于你的网速,延迟还有一些隐藏功能（这里我就不多解释了）一般推荐选择免流自动分配节点它会根据当时服务器在线人数进行最理想的分配，节点这些是属于功能类型，不关选什么节点里面的线路都是一样的都是可以选择的。<br>线路呢它就是取决于你免流的关键所在它的作用只取决于你是否免流跟网速或者功能无关，选择节点后才会进入线路选择列表，选择线路尽量不要追着你手机卡的省份定位，想避开雷区就优先选全国，优先选全国，优先选全国！重要的事情说三遍！<br>流量包也就是官网上的流量套餐这个其实大部分用户已经理解了这里我就稍微讲下，我们官网除了有月卡，季卡，年卡之外还出了一些功能型的流量套餐，比如你想用vip套餐你买了普通节点的套餐是肯定连接不上去的，如果你买了5元的卡密，像KX还有校园网破解，那些节点你仍然可以用价格高的可以任意用价格低的节点。</p><p>我的手机卡被限速连接云免可以破解吗？</p><p>对于手机卡本身已经被运营商限速的我们无法破解，如果像部分大王卡40g停网是可以打客服开通的。<br>手机卡过40G是否还可以继续免流？</p><p>一般很少有人用的超过40G不过总有几个奇葩能用完，如大王卡过40G可以选择全国联通的线路进行40G后的免流如斗鱼直连，全国联通F，商店，音乐，或者大王卡E山东联通可以用全国联通-mt线路，其他地区请自行测试，优先选择全国线路。<br>连接线路提示“用户验证失败！可能是您的密码错误或者账户已被禁用”</p><p>一般提示这个内容的只有两种情况，一就是你流量到期或者是流量用完！还有一种情况是你充值的普通卡密去连接VIP里面的线路系统验证你为低等级用户自然就连接不上了。醒醒 弟弟想白嫖我VIP节点？充钱就能解决充钱你会变得更强。<br>安装线路提示”您的身份信息处于未激活 不可安装”</p><p>说明你的账户没流量或者到期或者无充值卡密，充值新的卡密即可解决<br>连接线路提示“等待代理端口响应”</p><p>一般情况下是某些WAP线路需要你手机切换至WAP接入点，极少数情况是服务器宕机或者是线路失效如切换WAP接入点仍不能连接请联系管理员解决。<br>免流是否支持开热点？</p><p>当然不支持了，如果执意要测试可能会导致第二天运营商来收房子。<br>一个账号是否支持两个设备登陆？</p><p>当然不可以了，后者登陆会挤掉前者。</p><p>如果你还有什么不懂的问题这里没有回答到的可以在下方评论我看到会给你解答哦</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>免流，云免</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>推广收录不见效？</title>
+    <link href="/posts/400e41d6.html"/>
+    <url>/posts/400e41d6.html</url>
+    
+    <content type="html"><![CDATA[<p>随着现今做网站优化推广企业数量的增长，很多行业的网站seo优化效果都捉襟见肘，尤其是现今百度大调整的时候，导致网站排名和收录都受到很大的影响，目前很多网站的收录也大不如前，没有收录基础，网络优化推广效果和seo营销转化都是空谈。</p><p>对于熟悉SEO行业的人来说，或者是入行seo自然排名优化行业的人来说，在我们做成都seo关键词排名的时候，都会遇到如下的几个问题，同时也是在seo网站优化中不可避免的问题：</p><p>网站做了好几个月了，但网站内容一直都不收录;</p><p>网站文章收录速度参差不齐，有些当天就收录有些好几天才收录;</p><p>为什么开始有收录，后来又不收录了?网站收录慢的原因是什么?</p><p>网站内容怎样才能被百度快速收录?如何提升网站收录率?</p><p>一、网站为什么突然就不收录了?是自己技术太菜还是度娘不爱呢!!!</p><p>1、内容重复</p><p>内容得利包含两个方面，一是模板重复，二是文章重复。</p><p>2、SEO过度</p><p>百度对SEO过度的网站惩罚是越来越严重了，会造成百度收录变少或没收录。内容才是最重要的，就算你外链很强大，一段时间不更新原创内容，百度一样懒得理你。</p><p>3、改版</p><p>生意不好整柜台，流量不高整网站，其实网站也像人样，一个人经常改头换面，也得让你周围的人重新认识你，这需要一个过程，网站规划好了，版块定了，就不要轻易改动，不得已做网站改版也尽量保持原来的路径。可以一些细微的改动，千万不要大刀阔斧，改的面目全非。对一些大网站可能影响不大，但对于刚起步的小站来说，这可是致命的。这就跟一个人整了容，换了张脸一样，熟人不认识你了，百度同样也认不出你网站。</p><p>4、主机空间</p><p>空间不稳定、动不动就打不开网站、打开时间太长，百度连接两次以上更新都无法抓到相应信息，那么你肯定要被从数据库中清理，因为百度以为你的网站已经关闭，或者页面不存在了。还有一个就是你同IP上多次出现作弊，你也要跟着倒霉了。</p><p>5、链接</p><p>经常性的检查网站的外部链接，看看有没有死链接、垃圾网站、没有被百度收录的网站、被百度降权的网站，这些网站会导致百度对你网站的收录变少或者没收录。如果站内有相似链接的话，就要赶快删掉了。要养成良好的添加链接的习惯，有规律有步骤的添加外链，很多朋友一时心血来潮，看文章说外链作用很大，就一天到晚的加群换友链、到处发外链，这可是大忌，搜索引擎很容易就认定你是在作弊，所以要有规律的来。</p><p>6、网站安全</p><p>自己的站点上加了恶意代码或者故意挂马的话，百度能分析出来，还会降低你的信任度。还有就是不要被heike入侵，修改或者删除页面。为了防止类似问题出现，最好定期备份，出现问题及时解决，一般百度对个人站每天更新的不多，如果一旦不正常，立即处理，应该可以避免。好了，如果大家觉得有用，可以直接收藏广州网站建设的站点，我们相互交流，共同学习。</p><p>二、改变网站收录的优化手段和技巧分享</p><p>建议提高网站发布软文数量和原创度。</p><p>想要做好SEO优化推广，成都蔡江SEO小编建议，一定需要对搜索引擎的排名原理有一个大概的了解。在了解排名原理的基础上，还需要掌握以下几个关键点。</p><p>1、掌握基本建站操作</p><p>如果连最基本的连网站空间，服务器等设置都不清楚，怎样去做网站速度优化呢?再比如连最基本的Html网站代码都看不懂，怎样做代码优化呢?对于类似的SEO优化技术还有很多，做推广前先有一个大概的了解。</p><p>2、数据统计</p><p>要做好优化推广还需要对数据有一定的统计能力。比如哪些数据有利于用户搜索，哪些有利于搜索引擎排名等，甚至包括一些关键词的指数，流量入口页面分析，在分析数据的基础上，有的放矢，做推广的效果会更好。</p><p>3、尝试多种推广方式</p><p>优化推广的最终目的就是将产品信息更好更多的展示，因此，将网站整体的优化细节做好，不断尝试新的优化推广技术与方式，也有利于推广工作更好地展开。</p><p>4、了解产品</p><p>只有深入了解自己要推广的产品，才能通过最适合的切入点，挖掘产品特点，选择产品面向人群，进行最大限度的推广工作。</p><p>5、了解行业情况</p><p>做推广不但要了解自己的产品，还要了解同行业同类型的其他产品。通过比较相同点与差异，知己知彼，明确自己的特长，才能扬长避短，顺利进行推广。</p><p>三、在做SEO之前，该怎样打造一个高收录的网站环境?</p><p>1、新站上线前，最好秉承先优化后上线的思路进行。把整体框架都规划好，关键词也布局完毕，每个栏目最好更新5篇以上内容，并且内容质量不能偏低。这样就能很好规避后面的频繁改动问题，加深搜索引擎的友好度。</p><p>2、新站模板的选择，新站模板的选择对于网站优化至关重要，这可能也是很多站长朋友忽略的地方。一个简单的道理，搜索引擎整体搜索到的都是千篇一律的站点，没有新意时间久了自然也就腻了。跟吃肥肉一个理。因此，网站前期设计的话，最好做到“标新立异”，这样很容易引起搜索引擎好感。</p><p>3、内容的打造问题，这也是个老调重弹的话题了，笔者建议，复制别家的内容完全可以，不要为了SEO而SEO。关键的核心点是，复制过来之后，直接粘贴也无可厚非，不过需要对原有的内容加以完善，多补充一些东西，你要是懒的话，直接将别的两篇文章直接融合在一起，适当修改一下语句，使其更为通顺即可。</p><p>4、其次，网站存放的服务器一定要稳定，这是最基本的问题了，个人感觉阿里云比较不错，打开速度也不错，稳定性也好，这一点也是影响收录的关键因素，网站不要为了省钱，而使用稳定性偏差的服务器，这样很容易得不偿失。</p><p>其实，一个网站如果做好前面这四点，那么高收录根本不存在问题，下面接下来聊一聊上线后不收录的一些情况，有不足之处，望大家能共勉。</p><p>总之，导致网站不收录的因素有很多，同时不同的因素也有不一样的解决方式，这就需要站长们自己的逐一排查，就像人生病一样，要望闻问切，找准病根，这样才可以药到病除。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术分享</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>seo新手必备入门教程</title>
+    <link href="/posts/a274e5f2.html"/>
+    <url>/posts/a274e5f2.html</url>
+    
+    <content type="html"><![CDATA[<p>本文是分享seo新手入门教程。如下：<br>企业在做网站推广的时候，不可以抱着局限性的思想，认为只要做网站内关键词布局，结构优化和优质内容，这样就会有好排名，虽然这是实话;但做好站外推广也是目前不可忽视的优化方式，这样可以扩大网站的知名度，增加网站的用户流量;如站外优化质量比较高的话，可以增加网站的转化率，何乐而不为呢!</p><p>一、站外优化包括哪些</p><p>站外SEO优化，主要就是通过外链建设的，主要途径有、友情链接、博客评论(留言)、论坛签名(发帖)、问答平台、百科、分类信息推广。</p><p>在此，成都蔡江SEO也跟大家分享一些我经常做外链建设的方法及平台、</p><p>(1)、博客评论(留言)自建博客——新浪、搜狐、天涯、网易、百度空间、和讯。</p><p>(2)、论坛签名、发帖带些关键词和链接——行业相关论坛、站长论坛</p><p>(3)、通过分类信息推广——58同城、赶集网、百姓网、今题网、易登网、列表网、百业网、久久信息网、城市分类信息网、中华企业录、马可波罗、机电之家等。</p><p>(4)、百科——百度百科、搜搜百科、互动百科</p><p>(5)、问答——百度知道、雅虎知识堂、天涯问答、搜外问答、奇虎回答、新浪爱问知识人以及贴吧)</p><p>(6)、重视品牌与信息的传播(发布网站软文和相关招聘信息等)。</p><p>(7)、在文章中适当将相关关键词指向权威网站，提高网站在搜索引擎中的信任度。</p><p>另外，提醒各位站长或SEO优化人员，在做网站外链建设的时候，也有一些注意事项要特别留意的，比如、</p><p>(1)、链接文字中包含关键词，注意关键词的多样化。</p><p>(2)、尽量与相关性较高的网站交换，对方PR值要比自己网站大，对方导出的链接越少越好。</p><p>(3)、注意外链锚文本的多样性。</p><p>二、如何建设高质量反向链接?</p><p>1、高质量的内容被转载。内容中自然带有站内的指向路径，这样的链接无疑是最好的，最自然的反向链接(外链)。</p><p>2、具备相关性的友情链接是比较完美的外链。友链有网站相互投票的功能，相关性友链更是有相关性维度的体现功能。也就是说，一个高质量友链同时具备相关性和权威性的传递，作用不可小觑。</p><p>3、分类目录。分类目录属于高质量页面，入驻其中会为网站带来高质量反链。推荐以下几个，排名不分先后、</p><p>(1)DMOZ目录。</p><p>(2)Yahoo目录。</p><p>(3)ODP有多种含义，即开放式分类目录搜索系统，是目前网上最大的人工编制的分类检索系统。</p><p>以上是列举的部分分类目录，用来增加网站外链，是做站外seo的方法之一。</p><p>4、社会化书签。</p><p>(1)、百度收藏。</p><p>(2)、QQ书签。</p><p>社会化书签的作用已经越来越小，其作为为网站增加外链，作为站外优化方法的作用已经不明显。</p><p>5、论坛帖子发布以及签名。随着互联网的发展，论坛管理员的认知也在不断加深，大部分论坛签名已经使用nofollow标签禁止权重传递;另外一方面，百度也发布过官方声明，论坛，博客的外链作用会越来越小。</p><p>6、购买方式增加外链。一分钱一分货，我们可以通过购买的方式增加高质量外链，但如何去伪存真是一个大问题。百度官方发布的“对买卖链接行为的提醒，出售链接同样会受打击”，需要正确解读。</p><p>三、影响站外seo优化因素有哪些?</p><p>反向链接是站外最重要的SEO优化方法。这里，我们定义了反向链接是什么以及外部链是什么：假设您的站点是A，搜索引擎中的一个站点是B，如果站点B上有指向站点A的链接，则这个链接可以称为反向链接。反向环节是外部链的构建，注重质量而不是数量。例如，高质量的友情链接比多个低质量的友情链要好;相关度高的外部链接要比垃圾链好。</p><p>总之，在以前外链为皇的时代，可以说只要哪个网站的外链数量和质量比较多，那么网站SEO排名就不会太差，现今做企业网站优化要通过外链来获取排名下 ，这也大不如前了，但通过站外优化做网站品牌宣传还是不错的方式，同时也可以通过交换友链的方式来提升优化网站效果。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术分享</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>如何防御ddos,cc攻击</title>
+    <link href="/posts/1d46b0dc.html"/>
+    <url>/posts/1d46b0dc.html</url>
+    
+    <content type="html"><![CDATA[<p>是否因网站被DDOS CC 攻击而感到困扰 现在就谈谈网站防御问题 CDN也就是我们常说的加速节点， 用户可以就近访问节点直接获取网站内容， 不需要直接访问源网站。提升用户浏览速度和用户体验。CDN工作原是构建在现有网络基础之上的智能虚拟网络，依靠部署在各地服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。CDN功能实体具体分为内容缓存设备、内容交换机、内容路由器、CDN内容管理系，其中<br>内容缓存提供网站浏览内容，方便用户就近访问；<br>内容交换内容进行缓存负载平衡及访问控制；<br>内容路由器动态均衡各个内容缓存站点的载荷分配，为用户的请求选择最佳的访问站点，同时提高网站的可用性；<br>CDN内容管理系统进行内容管理；CDN具体的作用有哪些？<br>A、加速功能，解决由于用户访问量大造成的服务器过载问题。<br>B、节省骨干网带宽、降低带宽的需求量、节约成本。<br>C、克服网站分布不均，降低网站建设和维护成本。<br>D、可以隐藏源站，还可以防御网络攻击。<br>E、提高网络稳定性。最好是自建cdn可以省去很多成本</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术分享</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
